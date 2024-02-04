@@ -23,4 +23,11 @@ args = vars(ap.parse_args())
 callback = BaseCallbackManager([StreamingStdOutCallbackHandler()])
 url=args['url']
 
+#download and write pdf file
+r = requests.get(url, stream=True)
+
+with open('myfile.pdf', 'wb') as f:
+    f.write(r.content)
+
+
 
