@@ -37,7 +37,39 @@ llm= GPT4All(model=r'Z:\Projects\Test_SFXDX\testSFXDX\orca-mini-3b-gguf2-q4_0.gg
 loader = PyPDFLoader(args['url'])
 pdf_data = loader.load()
 
+#Define our db (Faiss) and Embedding
+model_kwargs = {'device': f'{args["mode"]}'}
+db = FAISS.from_documents(pdf_data, HuggingFaceEmbeddings(model_kwargs=model_kwargs))
 
+
+#Define our template for llm
+template = """Respond to the question based on the context.
+
+Question:
+{question}
+
+Context:
+{context}"""
+prompt = PromptTemplate(template=template, input_variables=["question", "context"])
+
+# Prepare the chain
+llm_chain = LLMChain(prompt=prompt, llm=llm)
+
+query = ' '.join(args['question'].split('_'))
+
+contexts_list = db.similarity_search(query, k=1)
+
+
+context = contexts_list[0].page_content
+
+
+
+# Run the chain to generate the answer
+response = llm_chain.invoke({'question': query, 'context': context[0:300]})
+if response['text'] == '':
+    print('No data to answer the question')
+else:
+    print(response['text'])
 
 
 
