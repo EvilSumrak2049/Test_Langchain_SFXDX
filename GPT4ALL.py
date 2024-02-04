@@ -30,4 +30,15 @@ with open('myfile.pdf', 'wb') as f:
     f.write(r.content)
 
 
+#read the llm GPT4ALL model
+llm= GPT4All(model=r'Z:\Projects\Test_SFXDX\testSFXDX\orca-mini-3b-gguf2-q4_0.gguf',callback_manager=callback,verbose=True)
+
+
+#read our pdf file using Langchain
+loader = PyPDFLoader(args['url'])
+pdf_data = loader.load()
+
+
+
+
 
