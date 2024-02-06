@@ -11,7 +11,7 @@ Place the model file in the root directory of your project.
 Open a terminal and navigate to the directory of your project.
 Run the following command to start the model:
 ```
-python3 gpt4all.py orca-mini-3b-gguf2-q4_0.gguf **"URL of PDF"** **"your question"** **"cpu or gpu"**
+python3 GPT4ALL.py orca-mini-3b-gguf2-q4_0.gguf **"URL of PDF"** **"your question"** **"cpu or gpu"**
 ```
 - Replace **"URL of PDF"** with the URL of the PDF file you want to process.
 
