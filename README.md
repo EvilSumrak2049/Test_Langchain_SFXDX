@@ -20,3 +20,12 @@ Replace "your question" with the question you want to ask the model.
 Replace "cpu or gpu" with cpu if you want to use the CPU or gpu if you want to use the GPU.
 
 The model will generate a response to your question.
+
+installing PyTorch for CUDA
+To use PyTorch with CUDA, you need to install it with the following command:
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+Note:
+
+You need to replace cu118 with the version of CUDA that is installed on your computer.
