@@ -11,7 +11,7 @@ Place the model file in the root directory of your project.
 Open a terminal and navigate to the directory of your project.
 Run the following command to start the model:
 ```
-python3 GPT4ALL.py **"URL of PDF"** **"your question"** **"cpu or gpu"**
+python3 GPT4ALL.py <URL of PDF> <your question> <cpu or gpu>
 ```
 - Replace **"URL of PDF"** with the URL of the PDF file you want to process.
 
